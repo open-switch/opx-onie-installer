@@ -10,7 +10,7 @@ set -e
 
 debootstrap \
     --arch=amd64 \
-    --include=linux-image-3.16.0-4-amd64,sudo \
+    --include=sudo \
     jessie \
     $tmpdir
 
@@ -28,6 +28,21 @@ default_hostname=OPX
 echo $default_hostname > $tmpdir/etc/hostname
 echo -e "127.0.1.1\t$default_hostname" >> $tmpdir/etc/hosts
 
+# Copy the contents of the rootconf folder to the rootfs
+rsync -avz --chown root:root rootconf/* $tmpdir
+
+# Update the sources and install the kernel
+chroot $tmpdir apt-get update
+chroot $tmpdir apt-get install -y --force-yes linux-image-3.16.0-4-amd64
+
+rm $tmpdir/etc/apt/sources.list.d/opx.list
+rm $tmpdir/usr/sbin/policy-rc.d
+chroot $tmpdir apt-get update
+chroot $tmpdir apt-get clean
+rm -rf $tmpdir/tmp/*
+
 # Create the rootfs tarball
 tar czf opx-rootfs.tar.gz -C $tmpdir .
 
+# Reset the ownership
+chown $LOCAL_UID:$LOCAL_GID opx-rootfs.tar.gz
