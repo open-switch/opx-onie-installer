@@ -1,2 +1,3 @@
-deb http://artifactory.force10networks.com/opx jessie main
+# TODO: Correct upstream repository to point to bintray
+deb http://10.14.1.29/opx jessie main
 

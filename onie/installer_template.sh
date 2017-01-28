@@ -197,7 +197,11 @@ install_opx()
     sed -e '1,/^__OPX_IMAGE__$/d' "$INSTALLER" | tar -zxf - -C $OPX_MOUNT
 
     # Reconfigure the kernel so that we regenerate the initramfs
-    chroot $OPX_MOUNT dpkg-reconfigure @@LINUX_KERNEL_IMAGE@@ >/dev/null 2>/dev/null
+    chroot $OPX_MOUNT dpkg-reconfigure @@LINUX_KERNEL_IMAGE@@ &>/dev/null
+
+    # Reconfigure OpenSSH to regenerate the host keys
+    chroot $OPX_MOUNT dpkg-reconfigure openssh-server &>/dev/null
+
     echo "OK"
 }
 

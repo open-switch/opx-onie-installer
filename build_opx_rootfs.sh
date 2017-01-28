@@ -35,6 +35,14 @@ rsync -avz --chown root:root rootconf/* $tmpdir
 chroot $tmpdir apt-get update
 chroot $tmpdir apt-get install -y --force-yes linux-image-3.16.0-4-amd64
 
+# Add extra open source packages
+chroot $tmpdir apt-get install -y \
+    openssh-server \
+    # DO NOT REMOVE THIS LINE
+
+# Remove any pre-generated SSH host keys
+rm -f $tmpdir/etc/ssh/ssh_host_*
+
 rm $tmpdir/etc/apt/sources.list.d/opx.list
 rm $tmpdir/usr/sbin/policy-rc.d
 chroot $tmpdir apt-get update
