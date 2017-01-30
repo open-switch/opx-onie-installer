@@ -3,10 +3,6 @@
 
 INSTALLER=$(realpath "$0")
 
-# Export some variables for GRUB installation
-export GRUB_SERIAL_COMMAND="@@GRUB_SERIAL_COMMAND@@"
-export GRUB_CMDLINE_LINUX="@@GRUB_CMDLINE_LINUX@@"
-
 set -e
 
 # Verify the checksum of the rootfs
@@ -43,17 +39,27 @@ identify_onie_variables()
     fi
 
     ONIE_MACHINE=$(onie-sysinfo -m)
-    INSTALLER_MACHINE="@@INSTALLER_MACHINE@@"
 
     # Verify that this installer is supported on the current machine
-    if [ "$ONIE_MACHINE" != "$INSTALLER_MACHINE" ]
-    then
+    # Set GRUB variables according to the detected machine
+    case "$ONIE_MACHINE" in
+    'dell_s6000_s1220') # Dell Networking S6000
+        GRUB_SERIAL_COMMAND='serial --port=0x3f8 --speed=115200 --word=8 --parity=no --stop=1'
+        GRUB_CMDLINE_LINUX='console=ttyS0,115200 intel_idle.max_cstate=0 processor.max_cstate=1'
+        ;;
+    'kvm_x86_64') # KVM Demonstration environment
+        GRUB_SERIAL_COMMAND='serial --port=0x3f8 --speed=115200 --word=8 --parity=no --stop=1'
+        GRUB_CMDLINE_LINUX='console=ttyS0,115200'
+        ;;
+    *)
         echo "Unsupported target $ONIE_MACHINE"
-        echo "This installer can only be run on $INSTALLER_MACHINE target"
         exit 1
-    else
-        echo "Installation target: $ONIE_MACHINE"
-    fi
+        ;;
+    esac
+
+    # Export the GRUB variables for use later
+    export GRUB_SERIAL_COMMAND
+    export GRUB_CMDLINE_LINUX
 
     # Ensure that the partition type is GPT. MBR is not supported.
     ONIE_PARTITION_TYPE=$(onie-sysinfo -t)
@@ -197,7 +203,7 @@ install_opx()
     sed -e '1,/^__OPX_IMAGE__$/d' "$INSTALLER" | tar -zxf - -C $OPX_MOUNT
 
     # Reconfigure the kernel so that we regenerate the initramfs
-    chroot $OPX_MOUNT dpkg-reconfigure @@LINUX_KERNEL_IMAGE@@ &>/dev/null
+    chroot $OPX_MOUNT dpkg-reconfigure linux-image-3.16.0-4-amd64 &>/dev/null
 
     # Reconfigure OpenSSH to regenerate the host keys
     chroot $OPX_MOUNT dpkg-reconfigure openssh-server &>/dev/null
