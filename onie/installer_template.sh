@@ -40,26 +40,12 @@ identify_onie_variables()
 
     ONIE_MACHINE=$(onie-sysinfo -m)
 
-    # Verify that this installer is supported on the current machine
-    # Set GRUB variables according to the detected machine
-    case "$ONIE_MACHINE" in
-    'dell_s6000_s1220') # Dell Networking S6000
-        GRUB_SERIAL_COMMAND='serial --port=0x3f8 --speed=115200 --word=8 --parity=no --stop=1'
-        GRUB_CMDLINE_LINUX='console=ttyS0,115200 intel_idle.max_cstate=0 processor.max_cstate=1'
-        ;;
-    'kvm_x86_64') # KVM Demonstration environment
-        GRUB_SERIAL_COMMAND='serial --port=0x3f8 --speed=115200 --word=8 --parity=no --stop=1'
-        GRUB_CMDLINE_LINUX='console=ttyS0,115200'
-        ;;
-    *)
-        echo "Unsupported target $ONIE_MACHINE"
-        exit 1
-        ;;
-    esac
+    # Detect the serial port parameters on the current platform
+    export GRUB_SERIAL_COMMAND=$(grep '^serial' /mnt/onie-boot/grub/grub.cfg)
 
-    # Export the GRUB variables for use later
-    export GRUB_SERIAL_COMMAND
-    export GRUB_CMDLINE_LINUX
+    # Find the console parameters for Linux
+    export GRUB_CMDLINE_LINUX=$(sed -e 's/^.*console=/console=/' \
+                                    -e 's/ .*$//' /proc/cmdline)
 
     # Ensure that the partition type is GPT. MBR is not supported.
     ONIE_PARTITION_TYPE=$(onie-sysinfo -t)
