@@ -9,5 +9,5 @@ $OPX_RUN /bin/bash -c 'cd /mnt/opx-onie-installer && sudo ./build_opx_rootfs.sh'
 
 cd $BUILD_DIR
 
-./build_onie_installer.sh opx-rootfs.tar.gz opx-onix-installer-x86_64.bin
+./build_onie_installer.sh opx-rootfs.tar.gz opx-onie-installer-x86_64_generic.bin
 
