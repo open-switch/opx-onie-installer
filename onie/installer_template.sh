@@ -40,12 +40,32 @@ identify_onie_variables()
 
     ONIE_MACHINE=$(onie-sysinfo -m)
 
-    # Detect the serial port parameters on the current platform
-    export GRUB_SERIAL_COMMAND=$(grep '^serial' /mnt/onie-boot/grub/grub.cfg)
+    # Set GRUB variables for Serial port and Console parameters
+    case "$ONIE_MACHINE" in
+    'dell_s6000_s1220') # Dell Networking S6000
+        GRUB_SERIAL_COMMAND='serial --port=0x3f8 --speed=115200 --word=8 --parity=no --stop=1'
+        GRUB_CMDLINE_LINUX='console=ttyS0,115200 intel_idle.max_cstate=0 processor.max_cstate=1'
+        ;;
+    'kvm_x86_64') # KVM Demonstration environment
+        GRUB_SERIAL_COMMAND='serial --port=0x3f8 --speed=115200 --word=8 --parity=no --stop=1'
+        GRUB_CMDLINE_LINUX='console=ttyS0,115200'
+        ;;
+    *)
+        # Detect the serial port parameters from onie-boot
+        GRUB_SERIAL_COMMAND=$(grep '^serial' /mnt/onie-boot/grub/grub.cfg)
+        # Find the console parameters for Linux
+        GRUB_CMDLINE_LINUX=$(grep console /proc/cmdline | sed -e 's/^.*console=/console=/' -e 's/ .*$//')
+        if [ "$GRUB_CMDLINE_LINUX" == "" ]
+        then
+            echo "Setting default console configuration at $GRUB_CMDLINE_LINUX"
+            GRUB_CMDLINE_LINUX='console=ttyS0,115200'
+        fi
+        ;;
+    esac
 
-    # Find the console parameters for Linux
-    export GRUB_CMDLINE_LINUX=$(sed -e 's/^.*console=/console=/' \
-                                    -e 's/ .*$//' /proc/cmdline)
+    # Export the GRUB variables for use later
+    export GRUB_SERIAL_COMMAND
+    export GRUB_CMDLINE_LINUX
 
     # Ensure that the partition type is GPT. MBR is not supported.
     ONIE_PARTITION_TYPE=$(onie-sysinfo -t)
