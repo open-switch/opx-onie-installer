@@ -40,8 +40,7 @@ identify_onie_variables()
 
     ONIE_MACHINE=$(onie-sysinfo -m)
 
-    # Verify that this installer is supported on the current machine
-    # Set GRUB variables according to the detected machine
+    # Set GRUB variables for Serial port and Console parameters
     case "$ONIE_MACHINE" in
     'dell_s6000_s1220') # Dell Networking S6000
         GRUB_SERIAL_COMMAND='serial --port=0x3f8 --speed=115200 --word=8 --parity=no --stop=1'
@@ -52,8 +51,15 @@ identify_onie_variables()
         GRUB_CMDLINE_LINUX='console=ttyS0,115200'
         ;;
     *)
-        echo "Unsupported target $ONIE_MACHINE"
-        exit 1
+        # Detect the serial port parameters from onie-boot
+        GRUB_SERIAL_COMMAND=$(grep '^serial' /mnt/onie-boot/grub/grub.cfg)
+        # Find the console parameters for Linux
+        GRUB_CMDLINE_LINUX=$(grep console /proc/cmdline | sed -e 's/^.*console=/console=/' -e 's/ .*$//')
+        if [ "$GRUB_CMDLINE_LINUX" == "" ]
+        then
+            echo "Setting default console configuration at $GRUB_CMDLINE_LINUX"
+            GRUB_CMDLINE_LINUX='console=ttyS0,115200'
+        fi
         ;;
     esac
 
