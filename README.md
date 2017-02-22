@@ -16,7 +16,6 @@ You require the following repos to build ONIE installer
 
 After you clone the above repos, run the the below commands to generate
 the ONIE installer image
-- $chmod 777 opx-onie-installer
 - $cd opx-onie-installer
 - $./build.sh
 
