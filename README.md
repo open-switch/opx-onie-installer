@@ -9,6 +9,10 @@ You must have the following repos to build ONIE installer:
 - opx-build
 - opx-onie-installer
 
+To clone the repos, run the following commands
+    $ git clone https://github.com/open-switch/opx-build.git
+    $ git clone https://github.com/open-switch/opx-onie-installer.git
+
 After you clone the above repos, run the following commands to generate the ONIE installer image:
     $ cd opx-onie-installer
     $ ./build.sh
