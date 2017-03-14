@@ -31,9 +31,9 @@ The build process pulls the Linux kernel image already built from
 The root file system mainly incorporates:
 - openssh-server
 - sudo
-- default user name and password : admin/admin
+- default user name and password: admin/admin
 - "admin" user added to sudo group
 
-After successful build, the ONIE installer will be generated at "opx-onie-installer" (for example, opx-onie-installer-x86_64_generic.bin).
+After successful build, the ONIE installer will be generated at "opx-onie-installer" (for example, `opx-onie-installer-x86_64_generic.bin`).
 
 (c) 2017 Dell
