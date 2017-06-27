@@ -1,3 +1,3 @@
 # Upstream repository to point to bintray
+deb http://dl.bintray.com/open-switch/opx-apt jessie main
 deb http://dell-networking.bintray.com/opx-apt jessie main
-

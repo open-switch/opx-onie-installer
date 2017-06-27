@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ASCII'?>
+<blueprint xmlns:xi="http://www.w3.org/2001/XInclude">
+  <description>OpenSwitch Base Blue Print</description>
+  <package_type>Debian</package_type>
+  <platform>generic-x86_64</platform>
+  <architecture>x86_64</architecture>
+  <installer_suffix>x86_64</installer_suffix>
+  <version>1.0.0</version>
+  <xi:include href="rootfs.xml"/>
+
+  <output_format>
+    <name>OPX-kernel-only</name>
+    <version>1.0.0</version>
+    <tar_archive>false</tar_archive>
+    <ONIE_image>false</ONIE_image>
+    <ONIE_pkg>true</ONIE_pkg>
+    <package_cache>false</package_cache>
+  </output_format>
+
+  <xi:include href="opx_debian_base.xml"/>
+
+  <xi:include href="opx_core.xml"/>
+</blueprint>

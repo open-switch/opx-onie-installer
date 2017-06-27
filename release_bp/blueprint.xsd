@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+             schemaLocation="http://www.w3.org/2001/03/xml.xsd" />
+  <xs:element name="blueprint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="description" type="xs:string"/>
+        <xs:element name="package_type" type="xs:string"/>
+        <xs:element name="platform" type="xs:string"/>
+        <xs:element name="architecture" type="xs:string"/>
+        <xs:element name="installer_suffix" type="xs:string"/>
+        <xs:element name="version" type="xs:string"/>
+        <xs:element name="rootfs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tar_name" type="xs:string"/>
+              <xs:element name="source" type="xs:string"/>
+              <xs:element name="location" type="xs:string"/>
+              <xs:element name="md5" type="xs:string" minOccurs="0"/>
+              <xs:element name="sha1" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="output_format">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="version" type="xs:string"/>
+              <xs:element name="tar_archive" type="xs:boolean"/>
+              <xs:element name="ONIE_image" type="xs:boolean"/>
+              <xs:element name="ONIE_pkg" type="xs:boolean"/>
+              <xs:element name="package_cache" type="xs:boolean"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="package_set" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="type" type="xs:string"/>
+              <xs:element name="platform" type="xs:string" minOccurs="0"/>
+              <xs:element name="flavor" type="xs:string" minOccurs="0"/>
+              <xs:element name="default_solver" minOccurs="0" />
+              <xs:element name="package_desc" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="url" type="xs:string"/>
+                    <xs:element name="distribution" type="xs:string"/>
+                    <xs:element name="component" type="xs:string"/>
+                  </xs:sequence>
+                  <xs:attribute ref="xml:base" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="package_list" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="no_package_filter" minOccurs="0" />
+                    <xs:element name="package" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required"/>
+                        <xs:attribute name="version" type="xs:string"/>
+                        <xs:attribute ref="xml:base" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute ref="xml:base" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute ref="xml:base" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="inst_hook" minOccurs="0" maxOccurs="unbounded" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

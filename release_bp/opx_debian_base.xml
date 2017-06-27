@@ -1,0 +1,21 @@
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <name>OpenSwitch Added Debian packages</name>
+  <type>distro</type>
+  <default_solver/>
+
+  <xi:include href="repo/debian.xml"/>
+  <xi:include href="repo/debian_backports.xml"/>
+  <xi:include href="repo/debian_security.xml"/>
+
+  <package_list>
+    <package name="fuse" />
+    <package name="grub2-common" />
+    <package name="ifenslave" />
+    <package name="iproute" />
+    <package name="iptables" />
+    <package name="libcurl3" />
+    <package name="libhiredis0.10" />
+    <package name="lvm2" />
+    <package name="openssh-server" />
+  </package_list>
+</package_set>

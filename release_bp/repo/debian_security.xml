@@ -1,0 +1,5 @@
+<package_desc>
+  <url>ftp://ftp.debian.org/debian</url>
+  <distribution>jessie-updates</distribution>
+  <component>main</component>
+</package_desc>
