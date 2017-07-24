@@ -1,3 +1,6 @@
 # Default fstab for OPX
 # ONIE partition
 PARTLABEL=ONIE-BOOT /mnt/onie-boot auto defaults,rw
+
+# GRUB partition
+PARTLABEL=OPX-BOOT /mnt/boot auto defaults,rw

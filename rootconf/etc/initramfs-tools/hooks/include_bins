@@ -1,0 +1,6 @@
+#!/bin/sh
+
+. /usr/share/initramfs-tools/hook-functions
+
+# Rootfs is ext4, so ensure appropriate fsck is in initramfs
+copy_exec /sbin/fsck.ext4 /sbin

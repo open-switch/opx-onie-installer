@@ -93,11 +93,11 @@ menuentry 'OPX-A' --class gnu-linux --class gnu --class os {
 menuentry 'OPX-B' --class gnu-linux --class gnu --class os {
     set     root=(lvm/$OPX_VOLUME_GROUP-$OPX_SYSROOT2_NAME)
     echo    'Loading OPX ...'
-    linux   /boot/opx.linux \\
+    linux   /vmlinuz \\
             $GRUB_CMDLINE_LINUX \\
             root=/dev/mapper/$OPX_VOLUME_GROUP-$OPX_SYSROOT2_NAME rw \\
             quiet
-    initrd  /boot/opx.initrd
+    initrd  /initrd.img
 }
 
 EOF

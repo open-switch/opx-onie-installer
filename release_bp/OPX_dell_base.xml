@@ -9,7 +9,7 @@
   <xi:include href="rootfs.xml"/>
 
   <output_format>
-    <name>OPX-Base</name>
+    <name>OPX</name>
     <version>2.1.0</version>
     <tar_archive>false</tar_archive>
     <ONIE_image>false</ONIE_image>
@@ -19,12 +19,17 @@
 
   <xi:include href="opx_debian_base.xml"/>
 
-  <xi:include href="opx_core.xml"/>
+  <xi:include href="vendor/dell/opx_core.xml"/>
 
-  <xi:include href="dell/s6000/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s6000/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s6010/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s3048/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s4048/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s4048t/opx_hw.xml"/>
 
   <!-- Installer hooks -->
   <inst_hook>97-create-manifest.postinst.sh</inst_hook>
+  <inst_hook>98-set-apt-sources.postinst.sh</inst_hook>
 
   <!-- Upgrade hooks -->
   <inst_hook>00-setup-opx-upgrade.pre-upgrade.sh</inst_hook>

@@ -19,5 +19,9 @@
 
   <xi:include href="opx_debian_base.xml"/>
 
-  <xi:include href="opx_core.xml"/>
+  <xi:include href="vendor/dell/opx_core.xml"/>
+
+  <!-- Installer hooks -->
+  <inst_hook>98-set-apt-sources.postinst.sh</inst_hook>
+
 </blueprint>

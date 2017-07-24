@@ -8,7 +8,6 @@
   <xi:include href="repo/debian_security.xml"/>
 
   <package_list>
-    <package name="fuse" />
     <package name="grub2-common" />
     <package name="ifenslave" />
     <package name="iproute" />
@@ -16,6 +15,7 @@
     <package name="libcurl3" />
     <package name="libhiredis0.10" />
     <package name="lvm2" />
+    <package name="e2fsprogs" />
     <package name="openssh-server" />
   </package_list>
 </package_set>
