@@ -17,5 +17,21 @@
     <package name="lvm2" />
     <package name="e2fsprogs" />
     <package name="openssh-server" />
+    <package name="quagga" />
+    <package name="tcpdump" />
+    <package name="net-tools" />
+    <package name="vlan" />
+    <package name="isc-dhcp-server" />
+    <package name="bind9" />
+    <package name="libsnmp-base" />
+    <package name="libsnmp-dev" />
+    <package name="libsnmp-perl" />
+    <package name="libsnmp30" />
+    <package name="libsnmp30-dbg" />
+    <package name="python-netsnmp" />
+    <package name="snmp" />
+    <package name="snmpd" />
+    <package name="snmptrapd" />
+    <package name="tkmib" />
   </package_list>
 </package_set>
