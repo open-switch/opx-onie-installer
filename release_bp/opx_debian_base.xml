@@ -8,29 +8,29 @@
   <xi:include href="repo/debian_security.xml"/>
 
   <package_list>
+    <package name="bind9" />
+    <package name="e2fsprogs" />
     <package name="grub2-common" />
     <package name="ifenslave" />
     <package name="iproute" />
     <package name="iptables" />
     <package name="libcurl3" />
     <package name="libhiredis0.10" />
-    <package name="lvm2" />
-    <package name="e2fsprogs" />
-    <package name="openssh-server" />
-    <package name="quagga" />
-    <package name="tcpdump" />
-    <package name="net-tools" />
-    <package name="vlan" />
-    <package name="bind9" />
     <package name="libsnmp-base" />
     <package name="libsnmp-dev" />
     <package name="libsnmp-perl" />
     <package name="libsnmp30" />
     <package name="libsnmp30-dbg" />
+    <package name="lvm2" />
+    <package name="net-tools" />
+    <package name="openssh-server" />
     <package name="python-netsnmp" />
+    <package name="quagga" />
     <package name="snmp" />
     <package name="snmpd" />
     <package name="snmptrapd" />
+    <package name="tcpdump" />
     <package name="tkmib" />
+    <package name="vlan" />
   </package_list>
 </package_set>
