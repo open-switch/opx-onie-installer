@@ -21,7 +21,6 @@
     <package name="tcpdump" />
     <package name="net-tools" />
     <package name="vlan" />
-    <package name="isc-dhcp-server" />
     <package name="bind9" />
     <package name="libsnmp-base" />
     <package name="libsnmp-dev" />

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII'?>
 <package_set xmlns:xi="http://www.w3.org/2001/XInclude">
-  <name>OpenSwitch Dell S3048 Base Packages</name>
+  <name>OpenSwitch Dell S3048 Packages</name>
   <type>distro</type>
   <platform>dell_s3000_c2338</platform>
   <default_solver/>

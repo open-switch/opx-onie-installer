@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII'?>
 <blueprint xmlns:xi="http://www.w3.org/2001/XInclude">
-  <description>OpenSwitch Base Blue Print</description>
+  <description>OpenSwitch Blueprint</description>
   <package_type>Debian</package_type>
   <platform>generic-x86_64</platform>
   <architecture>x86_64</architecture>

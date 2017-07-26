@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='ASCII'?>
 <package_set xmlns:xi="http://www.w3.org/2001/XInclude">
-  <name>OpenSwitch Dell S6010 Base Packages</name>
+  <name>OpenSwitch Dell S6010 Packages</name>
   <type>distro</type>
   <platform>dell_s6010_c2538</platform>
   <default_solver/>
