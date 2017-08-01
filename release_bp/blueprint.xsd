@@ -1,64 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+<!-- ***************************************************************************
+
+Schema for a ONIE image builder blueprint file
+
+*************************************************************************** -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           >
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"
-             schemaLocation="http://www.w3.org/2001/03/xml.xsd" />
+             schemaLocation="http://www.w3.org/2001/03/xml.xsd"
+             />
   <xs:element name="blueprint">
     <xs:complexType>
       <xs:sequence>
+        <!-- The 'description' and 'version' elements are a name and version
+             for this blueprint, and are used to construct the
+             INTERNAL_BUILD_ID shown in the 'opx-show-version' command
+        -->
         <xs:element name="description" type="xs:string"/>
+        <xs:element name="version" type="xs:string"/>
+        
+        <!-- The 'package_type" element sets the  type of package files to use;
+             only valid value is 'Debian', for now
+        -->
         <xs:element name="package_type" type="xs:string"/>
+
+        <!-- The 'platform', 'architecture' and 'installer_suffix' are all
+             used to define the CPU type of the target.
+             For now, the only valid values are:
+             platform => 'generic-x86_64'
+             architecture, installer suffix => 'x86_64'
+             This will be re-organized in the future.
+        -->
         <xs:element name="platform" type="xs:string"/>
         <xs:element name="architecture" type="xs:string"/>
         <xs:element name="installer_suffix" type="xs:string"/>
-        <xs:element name="version" type="xs:string"/>
+
+        <!-- Specify what output to produce -->
+        <xs:element name="output_format">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- true <=> Output package-based installer image -->
+              <xs:element name="ONIE_pkg" type="xs:boolean"/>
+              <!-- The 'ONIE_image', 'tar_archive' and 'package_cache' options
+                   are deprecated, and should not be used, i.e. set to false
+              -->
+              <xs:element name="ONIE_image" type="xs:boolean"/>
+              <xs:element name="tar_archive" type="xs:boolean"/>
+              <xs:element name="package_cache" type="xs:boolean"/>
+
+              <!-- The 'name' and 'version' elements are used in constructing
+                   the name of the output file, and also the OS_NAME, OS_VERSION
+                   and BUILD_VERSION shown in the 'opx-show-version' command
+              -->
+              <xs:element name="name" type="xs:string"/>
+              <xs:element name="version" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Specify the gzipped tarfile to use as the rootfs image -->
         <xs:element name="rootfs">
           <xs:complexType>
             <xs:sequence>
+              <!-- Name of tarfile -->
               <xs:element name="tar_name" type="xs:string"/>
+
+              <!-- URL path to above file -->
               <xs:element name="source" type="xs:string"/>
+
+              <!-- Directory in which rootfs will be unpacked; an arbitrary directory -->
               <xs:element name="location" type="xs:string"/>
+
+              <!-- MD5 sum of rootfs tarfile (optional) -->
               <xs:element name="md5" type="xs:string" minOccurs="0"/>
+
+              <!-- SHA1 sum of rootfs tarfile (optional) -->
               <xs:element name="sha1" type="xs:string" minOccurs="0"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="output_format">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="name" type="xs:string"/>
-              <xs:element name="version" type="xs:string"/>
-              <xs:element name="tar_archive" type="xs:boolean"/>
-              <xs:element name="ONIE_image" type="xs:boolean"/>
-              <xs:element name="ONIE_pkg" type="xs:boolean"/>
-              <xs:element name="package_cache" type="xs:boolean"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+
         <xs:element name="package_set" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
+              <!-- A reference name for this set of packages, used only for printing
+                   messages
+              -->
               <xs:element name="name" type="xs:string"/>
+
+              <!-- The 'type' element must be set to 'distro' -->
               <xs:element name="type" type="xs:string"/>
+
+              <!-- Platform string, from hardware (optional); if this element
+                   is defined, this package set will be installed iff this
+                   string matches the string returned by the platform hardware
+              -->
               <xs:element name="platform" type="xs:string" minOccurs="0"/>
+
+              <!-- When the element 'platform' above specifies the VM
+                   ('kvm_86_64'), 'flavor' specifies what hardware platform
+                   is to be emulated
+              -->
               <xs:element name="flavor" type="xs:string" minOccurs="0"/>
+
+              <!-- If present, use default (apt) package solver; otherwise,
+                   use custom solver; under normal use, specify default solver
+              -->
               <xs:element name="default_solver" minOccurs="0" />
+                           
+              <!-- Specifiy a package repo -->
               <xs:element name="package_desc" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
+                    <!-- URL to package repo -->
                     <xs:element name="url" type="xs:string"/>
+
+                    <!-- The elements 'distrinution' and 'component' specify
+                         their parts in locating a package
+                    -->
                     <xs:element name="distribution" type="xs:string"/>
                     <xs:element name="component" type="xs:string"/>
                   </xs:sequence>
                   <xs:attribute ref="xml:base" />
                 </xs:complexType>
               </xs:element>
+
+              <!-- Specify a list of packages to be installed -->
               <xs:element name="package_list" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="no_package_filter" minOccurs="0" />
                     <xs:element name="package" maxOccurs="unbounded">
                       <xs:complexType>
-                        <xs:attribute name="name" type="xs:string" use="required"/>
+                        <!-- Name of the packge to be installed -->
+                        <xs:attribute name="name"
+                                      type="xs:string"
+                                      use="required"
+                                      />
+
+                        <!-- The version of the package to be installed
+                             (optional)
+                        -->
                         <xs:attribute name="version" type="xs:string"/>
                         <xs:attribute ref="xml:base" />
                       </xs:complexType>
@@ -71,6 +156,15 @@
             <xs:attribute ref="xml:base" />
           </xs:complexType>
         </xs:element>
+
+        <!-- Specify a list of hooks (shell scripts) to run, at various stages
+             of the install/upgrade process.
+             The suffix of the hook name defines when it will be run, as
+             follows:
+               .preinst.sh  => Before packages are installed
+               .postinst.sh => After packages are installed
+             Hooks reside in the directory opx-onie-installer/inst-hooks.
+        -->
         <xs:element name="inst_hook" minOccurs="0" maxOccurs="unbounded" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

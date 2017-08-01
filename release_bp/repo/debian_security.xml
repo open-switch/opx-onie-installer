@@ -1,4 +1,6 @@
 <package_desc>
+  <!-- Repository for Debian security packages -->
+
   <url>ftp://ftp.debian.org/debian</url>
   <distribution>jessie-updates</distribution>
   <component>main</component>

@@ -2,6 +2,4 @@
   <tar_name>opx-rootfs_1.0.5_amd64.tar.gz</tar_name>
   <source>http://dell-networking.bintray.com/opx-apt/pool/jessie/opx-rootfs</source>
   <location>workspace/debian/jessie/x86_64/sysroot</location>
-  <md5></md5>
-  <sha1></sha1>
 </rootfs>

@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='ASCII'?>
 <package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on a Dell S4048-ON target -->
+
   <name>OpenSwitch Dell S4048 Packages</name>
   <type>distro</type>
   <platform>dell_s4000_c2338</platform>

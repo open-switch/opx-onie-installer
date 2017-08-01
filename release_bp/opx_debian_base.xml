@@ -1,4 +1,6 @@
 <package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on all targets -->
+
   <name>OpenSwitch Added Debian packages</name>
   <type>distro</type>
   <default_solver/>

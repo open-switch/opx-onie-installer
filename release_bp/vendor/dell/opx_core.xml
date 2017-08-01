@@ -1,5 +1,6 @@
 <package_set xmlns:xi="http://www.w3.org/2001/XInclude">
-  <!-- Core packages that must be installed first -->
+  <!-- Packages to be installed on all Dell hardware targets -->
+
   <name>OPX Core Packages, for Dell platforms</name>
   <type>distro</type>
   <default_solver/>
