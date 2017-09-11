@@ -33,7 +33,7 @@ blueprint files.
 
     <!-- Set OS name and version -->
     <name>OPX</name>
-    <version>2.1.0</version>
+    <version>2.2.0</version>
   </output_format>
 
   <!-- Specify the tarfile containing the rootfs image -->
@@ -53,6 +53,7 @@ blueprint files.
   <xi:include href="vendor/dell/s3048/opx_hw.xml"/>
   <xi:include href="vendor/dell/s4048/opx_hw.xml"/>
   <xi:include href="vendor/dell/s4048t/opx_hw.xml"/>
+  <xi:include href="vendor/dell/z9100/opx_hw.xml"/>
   <xi:include href="vendor/dell/vm/opx.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->

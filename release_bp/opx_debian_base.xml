@@ -34,5 +34,6 @@
     <package name="tcpdump" />
     <package name="tkmib" />
     <package name="vlan" />
+    <package name="lldpd" />
   </package_list>
 </package_set>
