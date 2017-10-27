@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='ASCII'?>
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on a Dell S4048-ON target -->
+
+  <name>OpenSwitch Dell S4048 Packages</name>
+  <type>distro</type>
+  <platform>dell_s4000_c2338</platform>
+  <default_solver/>
+
+  <xi:include href="../../../repo/local.xml"/>
+  <xi:include href="../../../repo/opx_unstable.xml"/>
+  <xi:include href="../../../repo/opx_non_free_unstable.xml"/>
+  <xi:include href="../../../repo/debian.xml"/>
+  <xi:include href="../../../repo/debian_security.xml"/>
+  <xi:include href="../../../repo/debian_backports.xml"/>
+
+  <package_list>
+    <package name="opx-dell-s4048" />
+  </package_list>
+</package_set>

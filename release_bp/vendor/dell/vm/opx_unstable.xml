@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='ASCII'?>
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Install packages for OPX running on simulation of Dell S6000-ON -->
+
+  <name>OpenSwitch Dell VM packages</name>
+  <type>distro</type>
+  <platform>kvm_x86_64</platform>
+  <default_solver/>
+
+  <xi:include href="../../../repo/local.xml"/>
+  <xi:include href="../../../repo/opx_unstable.xml"/>
+  <xi:include href="../../../repo/opx_non_free_unstable.xml"/>
+  <xi:include href="../../../repo/debian.xml"/>
+  <xi:include href="../../../repo/debian_security.xml"/>
+  <xi:include href="../../../repo/debian_backports.xml"/>
+
+  <package_list>
+    <package name="opx-dell-vm" />
+  </package_list>
+</package_set>

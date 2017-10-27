@@ -1,0 +1,17 @@
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on all Dell hardware targets -->
+
+  <name>OPX Core Packages, for Dell platforms</name>
+  <type>distro</type>
+  <default_solver/>
+
+  <xi:include href="../../repo/opx_unstable.xml"/>
+  <xi:include href="../../repo/opx_non_free_unstable.xml"/>
+  <xi:include href="../../repo/debian.xml"/>
+  <xi:include href="../../repo/debian_security.xml"/>
+  <xi:include href="../../repo/debian_backports.xml"/>
+
+  <package_list>
+    <package name="opx-kernel-dell-3.16.0-4-amd64"/>
+  </package_list>
+</package_set>
