@@ -1,7 +1,7 @@
 <package_desc>
   <!-- Repository for backported Debain packages -->
 
-  <url>ftp://ftp.debian.org/debian</url>
+  <url>http://httpredir.debian.org/debian</url>
   <distribution>jessie-backports</distribution>
   <component>main</component>
 </package_desc>

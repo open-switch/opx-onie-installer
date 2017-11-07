@@ -1,7 +1,7 @@
 <package_desc>
   <!-- Repository for standard Debian packages -->
 
-  <url>ftp://ftp.debian.org/debian</url>
+  <url>http://httpredir.debian.org/debian</url>
   <distribution>jessie</distribution>
   <component>main</component>
 </package_desc>
