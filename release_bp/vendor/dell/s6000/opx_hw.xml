@@ -7,7 +7,6 @@
   <platform>dell_s6000_s1220</platform>
   <default_solver/>
 
-  <xi:include href="../../../repo/local.xml"/>
   <xi:include href="../../../repo/opx.xml"/>
   <xi:include href="../../../repo/opx_non_free.xml"/>
   <xi:include href="../../../repo/debian.xml"/>

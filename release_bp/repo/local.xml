@@ -1,7 +1,0 @@
-<package_desc>
-  <!-- Use packages from the local workspace -->
-
-  <url>copy:/mnt</url>
-  <distribution>jessie</distribution>
-  <component>main</component>
-</package_desc>
