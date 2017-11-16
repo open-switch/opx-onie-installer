@@ -17,3 +17,9 @@ opx-onie-installer/
 └── rootconf/             - extra files to be included in the rootfs
 ```
 
+## Creating an Installer for a Specific Release
+
+* To assemble the latest stable image, use `OPX_dell_base.xml`.
+* To assemble the latest unstable image, use `OPX_dell_base_unstable.xml`.
+* To assemble a specific release, change the distribution from `jessie` to your chosen release (e.g. `aloha`) in `release_bp/repo/opx.xml` and `release_bp/repo/opx_non_free.xml`.
+
