@@ -13,7 +13,7 @@ blueprint files.
 *************************************************************************** -->
 
 <blueprint xmlns:xi="http://www.w3.org/2001/XInclude">
-  <!-- Set blueprint name and version --> 
+  <!-- Set blueprint name and version -->
   <description>OpenSwitch blueprint for Dell</description>
   <version>1.0.0</version>
 
@@ -53,7 +53,6 @@ blueprint files.
   <xi:include href="vendor/dell/s3048/opx_hw.xml"/>
   <xi:include href="vendor/dell/s4048/opx_hw.xml"/>
   <xi:include href="vendor/dell/s4048t/opx_hw.xml"/>
-  <xi:include href="vendor/dell/z9100/opx_hw.xml"/>
   <xi:include href="vendor/dell/vm/opx.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->
