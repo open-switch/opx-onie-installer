@@ -2,7 +2,7 @@
 
 This repository holds the utilities and data files describing how to build an ONIE installation image for OPX.
 
-Images are built using `opx_rel_pkgasm.py` in the [`opx-build`](http://git.openswitch.net/cgit/opx/opx-build/) repository. See the [installation section](https://github.com/open-switch/opx-build#installation) in `opx-build` for more information.
+Images are built using `opx_rel_pkgasm.py` in the [`opx-build`](http://git.openswitch.net/cgit/opx/opx-build/) repository. See [installation](https://github.com/open-switch/opx-build#installation) in `opx-build` for more information.
 
 ## Directories and files
 
@@ -17,9 +17,10 @@ opx-onie-installer/
 └── rootconf/             - extra files to be included in the rootfs
 ```
 
-## Creating an Installer for a Specific Release
+## Create installer for a specific release
 
-* To assemble the latest stable image, use `OPX_dell_base.xml`.
-* To assemble the latest unstable image, use `OPX_dell_base_unstable.xml`.
-* To assemble a specific release, change the distribution from `jessie` to your chosen release (e.g. `aloha`) in `release_bp/repo/opx.xml` and `release_bp/repo/opx_non_free.xml`.
+* To assemble the latest stable image, use `OPX_dell_base.xml`
+* To assemble the latest unstable image, use `OPX_dell_base_unstable.xml`
+* To assemble a specific release, change the distribution from `jessie` to your chosen release (e.g. `aloha`) in `release_bp/repo/opx.xml` and `release_bp/repo/opx_non_free.xml`
 
+(c) 2017 Dell EMC
