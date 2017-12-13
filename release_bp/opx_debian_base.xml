@@ -35,5 +35,6 @@
     <package name="tkmib" />
     <package name="vlan" />
     <package name="lldpd" />
+    <package name="watchdog" />
   </package_list>
 </package_set>
