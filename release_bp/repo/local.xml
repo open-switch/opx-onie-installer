@@ -1,7 +1,7 @@
 <package_desc>
   <!-- Repository for open-source OPX packages -->
 
-  <url>http://dl.bintray.com/open-switch/opx-apt</url>
+  <url>copy:/mnt</url>
   <distribution>unstable</distribution>
   <component>main</component>
 </package_desc>

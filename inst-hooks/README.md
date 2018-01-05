@@ -19,8 +19,8 @@ installation fails since the calling script is run with `set -e`.
 
 Each hook script must be explicitly specified in the blueprint using the tag
 `inst_hook` in order to be copied. You only need to specify the basename of
-the script, not the full path. ar_rel_pkgasm.py will assume it resides in the
-folder `onie-ngos-install/inst-hooks`.
+the script, not the full path. opx_rel_pkgasm.py will assume it resides in the
+folder `opx-onie-installer/inst-hooks`.
 
 # Upgrade Scripts
 

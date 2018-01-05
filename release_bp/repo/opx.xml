@@ -2,6 +2,6 @@
   <!-- Repository for open-source OPX packages -->
 
   <url>http://dl.bintray.com/open-switch/opx-apt</url>
-  <distribution>jessie</distribution>
+  <distribution>unstable</distribution>
   <component>main</component>
 </package_desc>

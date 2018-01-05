@@ -2,6 +2,6 @@
   <!-- Repository for closed-source OPX packages -->
 
   <url>http://dell-networking.bintray.com/opx-apt</url>
-  <distribution>jessie</distribution>
+  <distribution>unstable</distribution>
   <component>main</component>
 </package_desc>
