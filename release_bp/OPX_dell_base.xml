@@ -48,12 +48,13 @@ blueprint files.
   <!-- Specify Debian packges to be installed on each particular Dell
        platform
   -->
-  <xi:include href="vendor/dell/s6000/opx_hw.xml"/>
-  <xi:include href="vendor/dell/s6010/opx_hw.xml"/>
   <xi:include href="vendor/dell/s3048/opx_hw.xml"/>
   <xi:include href="vendor/dell/s4048/opx_hw.xml"/>
   <xi:include href="vendor/dell/s4048t/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s6000/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s6010/opx_hw.xml"/>
   <xi:include href="vendor/dell/vm/opx.xml"/>
+  <xi:include href="vendor/dell/z9100/opx_hw.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->
   <inst_hook>97-create-manifest.postinst.sh</inst_hook>
