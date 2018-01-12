@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='ASCII'?>
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on a Dell S4128T-ON target -->
+
+  <name>OpenSwitch DellEMC S4128T Packages</name>
+  <type>distro</type>
+  <platform>dellemc_s4128t_c2338</platform>
+  <default_solver/>
+
+  <xi:include href="../../../repo/local.xml"/>
+  <xi:include href="../../../repo/opx.xml"/>
+  <xi:include href="../../../repo/opx_non_free.xml"/>
+  <xi:include href="../../../repo/debian.xml"/>
+  <xi:include href="../../../repo/debian_security.xml"/>
+  <xi:include href="../../../repo/debian_backports.xml"/>
+
+  <package_list>
+    <package name="opx-dell-s4128t" />
+  </package_list>
+</package_set>
