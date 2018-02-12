@@ -16,9 +16,7 @@ echo 'deb-src http://httpredir.debian.org/debian/ jessie-updates main contrib no
 echo 'deb http://security.debian.org/ jessie/updates main contrib non-free' >> /etc/apt/sources.list
 echo 'deb-src http://security.debian.org/ jessie/updates main contrib non-free' >> /etc/apt/sources.list
 
-echo 'deb http://dl.bintray.com/open-switch/opx-apt unstable main' >> /etc/apt/sources.list
-echo 'deb http://dell-networking.bintray.com/opx-apt unstable main' >> /etc/apt/sources.list
+echo 'deb http://deb.openswitch.net/ unstable main' >> /etc/apt/sources.list
+apt-key adv --keyserver pgp.mit.edu --recv AD5073F1
 
-curl -fsSL https://bintray.com/user/downloadSubjectPublicKey?username=dell-networking | apt-key add -
-curl -fsSL https://bintray.com/user/downloadSubjectPublicKey?username=open-switch | apt-key add -
 apt-get update
