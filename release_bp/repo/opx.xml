@@ -3,5 +3,5 @@
 
   <url>http://deb.openswitch.net/</url>
   <distribution>unstable</distribution>
-  <component>main</component>
+  <component>main opx opx-non-free</component>
 </package_desc>
