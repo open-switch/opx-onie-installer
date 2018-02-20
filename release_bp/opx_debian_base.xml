@@ -28,5 +28,6 @@
     <package name="vlan" />
     <package name="lldpd" />
     <package name="watchdog" />
+    <package name="logrotate"/>
   </package_list>
 </package_set>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='ASCII'?>
+
+<!-- ***************************************************************************
+
+Blueprint file for building an ONIE image for installing OPX on Cavium compatible
+hardware
+
+See opx-onie-installer/release_bp/blueprint.xsd for the full schema for
+blueprint files.
+
+*************************************************************************** -->
+
+<blueprint xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Set blueprint name and version --> 
+  <description>OpenSwitch blueprint for Cavium</description>
+  <version>1.0.0</version>
+
+  <package_type>Debian</package_type>
+  <platform>generic-x86_64</platform>
+  <architecture>x86_64</architecture>
+  <installer_suffix>x86_64</installer_suffix>
+
+  <output_format>
+    <!-- Select what output to produce; we just want the package-based
+         installation image
+    -->
+    <ONIE_pkg>true</ONIE_pkg>
+    <ONIE_image>false</ONIE_image>
+    <tar_archive>false</tar_archive>
+    <package_cache>false</package_cache>
+
+    <!-- Set OS name and version -->
+    <name>OPX</name>
+    <version>2.1.0</version>
+  </output_format>
+
+  <!-- Specify the tarfile containing the rootfs image -->
+  <xi:include href="rootfs.xml"/>
+
+  <!-- Specify Debian packges to be installed on all platforms -->
+  <xi:include href="opx_debian_base.xml"/>
+
+  <!-- Specify Debian packges to be installed on all Cavium compatible platforms -->
+  <xi:include href="vendor/edgecore/opx_core.xml"/>
+
+  <!-- Specify Debian packges to be installed on each particular Cavium compatible
+       platform
+  -->
+  <xi:include href="vendor/edgecore/as7512/opx_hw.xml"/>
+
+  <!-- Scripts to run after installation of packages is complete -->
+  <inst_hook>97-create-manifest.postinst.sh</inst_hook>
+  <inst_hook>98-set-apt-sources.postinst.sh</inst_hook>
+
+  <!-- Upgrade hooks -->
+  <inst_hook>00-setup-opx-upgrade.pre-upgrade.sh</inst_hook>
+</blueprint>
