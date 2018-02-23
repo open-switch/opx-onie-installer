@@ -65,6 +65,7 @@ blueprint files.
   <xi:include href="vendor/dellemc/s4148e/opx_hw.xml"/>
   <xi:include href="vendor/dellemc/s4148f/opx_hw.xml"/>
   <xi:include href="vendor/dellemc/s4148t/opx_hw.xml"/>
+  <xi:include href="vendor/dellemc/s5148f/opx_hw.xml"/>
   <xi:include href="vendor/dell/vm/opx.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->
