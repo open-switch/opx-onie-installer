@@ -54,6 +54,8 @@ blueprint files.
   <xi:include href="vendor/dell/s6000/opx_hw.xml"/>
   <xi:include href="vendor/dell/s6010/opx_hw.xml"/>
   <xi:include href="vendor/dell/z9100/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s4248fb/opx_hw.xml"/>
+  <xi:include href="vendor/dell/s4248fbl/opx_hw.xml"/>
   <xi:include href="vendor/dellemc/s6000/opx_hw.xml"/>
   <xi:include href="vendor/dellemc/s6010/opx_hw.xml"/>
   <xi:include href="vendor/dellemc/s3048/opx_hw.xml"/>
@@ -66,6 +68,8 @@ blueprint files.
   <xi:include href="vendor/dellemc/s4148f/opx_hw.xml"/>
   <xi:include href="vendor/dellemc/s4148t/opx_hw.xml"/>
   <xi:include href="vendor/dellemc/s5148f/opx_hw.xml"/>
+  <xi:include href="vendor/dellemc/s4248fb/opx_hw.xml"/>
+  <xi:include href="vendor/dellemc/s4248fbl/opx_hw.xml"/>
   <xi:include href="vendor/dell/vm/opx.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->
