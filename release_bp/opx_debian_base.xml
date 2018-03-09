@@ -5,6 +5,7 @@
   <type>distro</type>
   <default_solver/>
 
+  <xi:include href="repo/contrib.xml"/>
   <xi:include href="repo/debian.xml"/>
   <xi:include href="repo/debian_backports.xml"/>
   <xi:include href="repo/debian_security.xml"/>
@@ -12,25 +13,16 @@
   <package_list>
     <package name="bind9" />
     <package name="e2fsprogs" />
+    <package name="frr" />
     <package name="grub2-common" />
     <package name="ifenslave" />
     <package name="iproute" />
     <package name="iptables" />
     <package name="libcurl3" />
     <package name="libhiredis0.10" />
-    <package name="libsnmp-base" />
-    <package name="libsnmp-dev" />
-    <package name="libsnmp-perl" />
-    <package name="libsnmp30" />
-    <package name="libsnmp30-dbg" />
     <package name="lvm2" />
     <package name="net-tools" />
     <package name="openssh-server" />
-    <package name="python-netsnmp" />
-    <package name="quagga" />
-    <package name="snmp" />
-    <package name="snmpd" />
-    <package name="snmptrapd" />
     <package name="tcpdump" />
     <package name="tkmib" />
     <package name="vlan" />
