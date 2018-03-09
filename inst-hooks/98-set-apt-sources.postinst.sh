@@ -7,6 +7,8 @@ mkdir -p /etc/apt
 cat <<EOF >/etc/apt/sources.list
 deb http://deb.openswitch.net/ unstable main opx opx-non-free
 
+deb http://deb.openswitch.net/contrib stable contrib
+
 deb http://httpredir.debian.org/debian/ jessie main contrib non-free
 deb-src http://httpredir.debian.org/debian/ jessie main contrib non-free
 

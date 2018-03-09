@@ -33,7 +33,7 @@ blueprint files.
 
     <!-- Set OS name and version -->
     <name>OPX</name>
-    <version>2.2.0</version>
+    <version>2.3.0</version>
   </output_format>
 
   <!-- Specify the tarfile containing the rootfs image -->

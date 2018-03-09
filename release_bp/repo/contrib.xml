@@ -1,0 +1,7 @@
+<package_desc>
+  <!-- Repository for open-source OPX packages -->
+
+  <url>http://deb.openswitch.net/contrib</url>
+  <distribution>stable</distribution>
+  <component>contrib</component>
+</package_desc>
