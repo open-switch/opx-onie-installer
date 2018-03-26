@@ -1,0 +1,26 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: opxhub/build
+inputs:
+- name: src
+outputs:
+- name: dist
+run:
+  path: bash
+  args:
+  - -exc
+  - |
+    # workaround for hard-coded /mnt directory in opx_build script
+    # also workaround for hardcoded opx-onie-installer path
+    cp -r src /mnt/opx-onie-installer
+    # build packages
+    pushd /mnt/
+    /opt/opx-build/scripts/opx_rel_pkgasm.py -v 5 --debug --dist unstable \
+      -b opx-onie-installer/release_bp/OPX_dell_base.xml
+    popd
+    # copy artifacts to output
+    cp -t dist/ /mnt/*.bin
+
