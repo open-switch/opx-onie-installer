@@ -16,11 +16,15 @@ run:
     # workaround for hard-coded /mnt directory in opx_build script
     # also workaround for hardcoded opx-onie-installer path
     cp -r src /mnt/opx-onie-installer
-    # build packages
+    # build rootfs
+    pushd /mnt/opx-onie-installer
+    ./build_opx_rootfs.sh 9.9.9 amd64
+    popd
+    # build installer
     pushd /mnt/
     /opt/opx-build/scripts/opx_rel_pkgasm.py -v 5 --debug --dist unstable \
       -b opx-onie-installer/release_bp/OPX_dell_base.xml
     popd
     # copy artifacts to output
-    cp -t dist/ /mnt/*.bin
+    cp -t dist/ /mnt/*.bin /mnt/opx-onie-installer/*rootfs*.tar.gz
 

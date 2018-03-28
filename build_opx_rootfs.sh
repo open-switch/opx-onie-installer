@@ -47,8 +47,8 @@ rm $tmpdir/usr/sbin/policy-rc.d
 
 # Add pip and pysnmp
 # This should be done using Debian packages...
-apt-get install -y python-pip
-pip install pysnmp
+chroot $tmpdir apt-get install -y python-pip
+chroot $tmpdir pip install pysnmp
 
 chroot $tmpdir apt-get update
 chroot $tmpdir apt-get clean
