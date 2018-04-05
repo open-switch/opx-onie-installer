@@ -1,8 +1,8 @@
-# OPX Onie Installer
+# OPX ONIE Installer
 
 This repository holds the utilities and data files describing how to build an ONIE installation image for OPX.
 
-Images are built using `opx_rel_pkgasm.py` in the [`opx-build`](http://git.openswitch.net/cgit/opx/opx-build/) repository. See [installation](https://github.com/open-switch/opx-build#installation) in `opx-build` for more information.
+Images are built using `opx_rel_pkgasm.py` in the [`opx-build`](https://github.com/open-switch/opx-build) repository (see [installation](https://github.com/open-switch/opx-build#installation)).
 
 ## Directories and files
 
@@ -17,4 +17,5 @@ opx-onie-installer/
 └── rootconf/             - extra files to be included in the rootfs
 ```
 
-(c) 2017 Dell EMC
+© 2018 Dell Inc. or its subsidiaries. All Rights Reserved.
+
