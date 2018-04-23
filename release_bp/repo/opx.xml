@@ -1,7 +1,7 @@
 <package_desc>
   <!-- Repository for open-source OPX packages -->
 
-  <url>http://deb.openswitch.net/</url>
+  <url>http://deb.openswitch.net/jessie</url>
   <distribution>unstable</distribution>
   <component>main opx opx-non-free</component>
 </package_desc>
