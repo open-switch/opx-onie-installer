@@ -8,13 +8,11 @@ Images are built using `opx_rel_pkgasm.py` in the [`opx-build`](https://github.c
 
 ```
 opx-onie-installer/
-├── build_opx_rootfs.sh   - create a gzipped tarfile rootfs image
 ├── inst-hooks/           - hooks for installation process
-├── release_bp/           - blueprint directory
-│   ├── OPX_dell_base.xml - top-level blueprint for all Dell platforms
-│   ├── repo/             - Debian package repository definitions
-│   └── vendor/           - vendor-specific blueprint files
-└── rootconf/             - extra files to be included in the rootfs
+└── release_bp/           - blueprint directory
+    ├── OPX_dell_base.xml - top-level blueprint for all Dell platforms
+    ├── repo/             - Debian package repository definitions
+    └── vendor/           - vendor-specific blueprint files
 ```
 
 © 2018 Dell Inc. or its subsidiaries. All Rights Reserved.
