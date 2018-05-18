@@ -75,6 +75,7 @@ blueprint files.
   <!-- Scripts to run after installation of packages is complete -->
   <inst_hook>97-create-manifest.postinst.sh</inst_hook>
   <inst_hook>98-set-apt-sources.postinst.sh</inst_hook>
+  <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>
 
   <!-- Upgrade hooks -->
   <inst_hook>00-setup-opx-upgrade.pre-upgrade.sh</inst_hook>
