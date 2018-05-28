@@ -1,5 +1,5 @@
 <rootfs>
   <tar_name>opx-rootfs_1.0.7-jessie_amd64.tar.gz</tar_name>
-  <source>https://archive.openswitch.net/rootfs</source>
+  <source>http://archive.openswitch.net/rootfs</source>
   <location>workspace/debian/jessie/x86_64/sysroot</location>
 </rootfs>
