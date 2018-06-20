@@ -73,6 +73,7 @@ blueprint files.
   <xi:include href="vendor/dell/vm/opx_stretch.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->
+  <inst_hook>01-mod-rootdir-permission.preinst.sh</inst_hook>
   <inst_hook>97-create-manifest.postinst.sh</inst_hook>
   <inst_hook>98-set-apt-sources.stretch.postinst.sh</inst_hook>
   <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>

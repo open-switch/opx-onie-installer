@@ -12,6 +12,6 @@
   <xi:include href="../../repo/stretch_updates.xml"/>
 
   <package_list>
-    <package name="linux-image-4.9.0-6-amd64" version="[4.9.82-1+deb9u3]"/>
+    <package name="linux-image-4.9.0-6-amd64" version="[4.9.88-1+deb9u1]"/>
   </package_list>
 </package_set>

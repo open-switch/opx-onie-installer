@@ -86,7 +86,7 @@ menuentry 'OPX-A' --class gnu-linux --class gnu --class os {
     linux   /vmlinuz \\
             $GRUB_CMDLINE_LINUX \\
             root=/dev/mapper/$OPX_VOLUME_GROUP-$OPX_SYSROOT1_NAME rw \\
-            quiet
+            quiet net.ifnames=0
     initrd  /initrd.img
 }
 
@@ -96,7 +96,7 @@ menuentry 'OPX-B' --class gnu-linux --class gnu --class os {
     linux   /vmlinuz \\
             $GRUB_CMDLINE_LINUX \\
             root=/dev/mapper/$OPX_VOLUME_GROUP-$OPX_SYSROOT2_NAME rw \\
-            quiet
+            quiet net.ifnames=0
     initrd  /initrd.img
 }
 
