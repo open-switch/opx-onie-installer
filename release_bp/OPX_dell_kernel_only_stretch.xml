@@ -6,7 +6,7 @@
   <architecture>x86_64</architecture>
   <installer_suffix>x86_64</installer_suffix>
   <version>1.0.0</version>
-  <xi:include href="rootfs_jessie.xml"/>
+  <xi:include href="rootfs_stretch.xml"/>
 
   <output_format>
     <name>OPX-kernel-only</name>
@@ -17,12 +17,12 @@
     <package_cache>false</package_cache>
   </output_format>
 
-  <xi:include href="opx_debian_base.xml"/>
+  <xi:include href="opx_debian_base_stretch.xml"/>
 
   <xi:include href="vendor/dell/opx_core.xml"/>
 
   <!-- Installer hooks -->
-  <inst_hook>98-set-apt-sources.postinst.sh</inst_hook>
+  <inst_hook>98-set-apt-sources.stretch.postinst.sh</inst_hook>
   <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>
 
 </blueprint>

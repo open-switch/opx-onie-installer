@@ -35,22 +35,22 @@ blueprint files.
   </output_format>
 
   <!-- Specify the tarfile containing the rootfs image -->
-  <xi:include href="rootfs_jessie.xml"/>
+  <xi:include href="rootfs_stretch.xml"/>
 
   <!-- Specify Debian packges to be installed on all platforms -->
-  <xi:include href="opx_debian_base.xml"/>
+  <xi:include href="opx_debian_base_stretch.xml"/>
 
   <!-- Specify Debian packges to be installed on all Cavium compatible platforms -->
-  <xi:include href="vendor/edgecore/opx_core.xml"/>
+  <xi:include href="vendor/edgecore/opx_core_stretch.xml"/>
 
   <!-- Specify Debian packges to be installed on each particular Cavium compatible
        platform
   -->
-  <xi:include href="vendor/edgecore/as7512/opx_hw.xml"/>
+  <xi:include href="vendor/edgecore/as7512/opx_hw_stretch.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->
   <inst_hook>97-create-manifest.postinst.sh</inst_hook>
-  <inst_hook>98-set-apt-sources.postinst.sh</inst_hook>
+  <inst_hook>98-set-apt-sources.stretch.postinst.sh</inst_hook>
 
   <!-- Upgrade hooks -->
   <inst_hook>00-setup-opx-upgrade.pre-upgrade.sh</inst_hook>

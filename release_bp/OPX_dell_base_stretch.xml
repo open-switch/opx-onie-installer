@@ -37,44 +37,44 @@ blueprint files.
   </output_format>
 
   <!-- Specify the tarfile containing the rootfs image -->
-  <xi:include href="rootfs_jessie.xml"/>
+  <xi:include href="rootfs_stretch.xml"/>
 
   <!-- Specify Debian packges to be installed on all platforms -->
-  <xi:include href="opx_debian_base.xml"/>
+  <xi:include href="opx_debian_base_stretch.xml"/>
 
   <!-- Specify Debian packges to be installed on all Dell platforms -->
-  <xi:include href="vendor/dell/opx_core.xml"/>
+  <xi:include href="vendor/dell/opx_core_stretch.xml"/>
 
   <!-- Specify Debian packges to be installed on each particular Dell
        platform
   -->
-  <xi:include href="vendor/dell/s3048/opx_hw.xml"/>
-  <xi:include href="vendor/dell/s4048/opx_hw.xml"/>
-  <xi:include href="vendor/dell/s4048t/opx_hw.xml"/>
-  <xi:include href="vendor/dell/s6000/opx_hw.xml"/>
-  <xi:include href="vendor/dell/s6010/opx_hw.xml"/>
-  <xi:include href="vendor/dell/z9100/opx_hw.xml"/>
-  <xi:include href="vendor/dell/s4248fb/opx_hw.xml"/>
-  <xi:include href="vendor/dell/s4248fbl/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s6000/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s6010/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s3048/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4048/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4048t/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/z9100/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4128f/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4128t/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4148e/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4148f/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4148t/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s5148f/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4248fb/opx_hw.xml"/>
-  <xi:include href="vendor/dellemc/s4248fbl/opx_hw.xml"/>
-  <xi:include href="vendor/dell/vm/opx.xml"/>
+  <xi:include href="vendor/dell/s3048/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/s4048/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/s4048t/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/s6000/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/s6010/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/z9100/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/s4248fb/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/s4248fbl/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s3048/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4048/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4048t/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4128f/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4128t/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4148e/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4148f/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4148t/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4248fb/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4248fbl/opx_hw_stretch.xml"/>
+  <!--<xi:include href="vendor/dellemc/s5148f/opx_hw_stretch.xml"/>-->
+  <xi:include href="vendor/dellemc/s6000/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s6010/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/z9100/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dell/vm/opx_stretch.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->
   <inst_hook>97-create-manifest.postinst.sh</inst_hook>
-  <inst_hook>98-set-apt-sources.postinst.sh</inst_hook>
+  <inst_hook>98-set-apt-sources.stretch.postinst.sh</inst_hook>
   <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>
 
   <!-- Upgrade hooks -->

@@ -1,0 +1,17 @@
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on all Cavium compatible hardware targets -->
+
+  <name>OPX Core Packages, for Cavium compatible platforms</name>
+  <type>distro</type>
+  <default_solver/>
+
+  <xi:include href="../../repo/local.xml"/>
+  <xi:include href="../../repo/opx_stretch.xml"/>
+  <xi:include href="../../repo/stretch.xml"/>
+  <xi:include href="../../repo/stretch_security.xml"/>
+  <xi:include href="../../repo/stretch_updates.xml"/>
+
+  <package_list>
+    <package name="linux-image-4.9.82-amd64"/>
+  </package_list>
+</package_set>

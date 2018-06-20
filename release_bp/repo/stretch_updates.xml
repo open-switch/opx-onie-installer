@@ -1,0 +1,7 @@
+<package_desc>
+  <!-- Repository for standard Debian packages -->
+
+  <url>http://deb.debian.org/debian</url>
+  <distribution>stretch-updates</distribution>
+  <component>main</component>
+</package_desc>

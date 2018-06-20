@@ -1,0 +1,31 @@
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on all targets -->
+
+  <name>OpenSwitch Added Debian Stretch packages</name>
+  <type>distro</type>
+  <default_solver/>
+
+  <xi:include href="repo/stretch.xml"/>
+  <xi:include href="repo/stretch_backports.xml"/>
+  <xi:include href="repo/stretch_security.xml"/>
+
+  <package_list>
+    <package name="e2fsprogs" />
+    <package name="grub2-common" />
+    <package name="ifenslave" />
+    <package name="iproute" />
+    <package name="iptables" />
+    <package name="libcurl3" />
+    <package name="libhiredis0.13" />
+    <package name="lvm2" />
+    <package name="net-tools" />
+    <package name="ntp" />
+    <package name="openssh-server" />
+    <package name="tcpdump" />
+    <package name="tkmib" />
+    <package name="vlan" />
+    <package name="lldpd" />
+    <package name="watchdog" />
+    <package name="logrotate"/>
+  </package_list>
+</package_set>

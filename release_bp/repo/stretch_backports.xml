@@ -1,0 +1,7 @@
+<package_desc>
+  <!-- Repository for backported Debain packages -->
+
+  <url>http://deb.debian.org/debian</url>
+  <distribution>stretch-backports</distribution>
+  <component>main</component>
+</package_desc>

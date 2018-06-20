@@ -1,0 +1,7 @@
+<package_desc>
+  <!-- Repository for Debian security packages -->
+
+  <url>http://security.debian.org/debian-security</url>
+  <distribution>stretch/updates</distribution>
+  <component>main</component>
+</package_desc>
