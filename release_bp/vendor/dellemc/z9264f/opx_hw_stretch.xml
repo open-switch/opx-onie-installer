@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ASCII'?>
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on a Dell Z9264F-ON target -->
+
+  <name>OpenSwitch DellEMC Z9264F Packages</name>
+  <type>distro</type>
+  <platform>dellemc_z9264f_c3538</platform>
+  <default_solver/>
+
+  <xi:include href="../../../repo/local.xml"/>
+  <xi:include href="../../../repo/opx_stretch.xml"/>
+  <xi:include href="../../../repo/stretch.xml"/>
+  <xi:include href="../../../repo/stretch_security.xml"/>
+  <xi:include href="../../../repo/stretch_updates.xml"/>
+
+  <package_list>
+    <package name="opx-dell-z9264f" />
+  </package_list>
+</package_set>

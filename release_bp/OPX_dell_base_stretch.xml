@@ -59,6 +59,8 @@ blueprint files.
   <xi:include href="vendor/dellemc/s3048/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4048/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4048t/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4112f/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s4112t/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4128f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4128t/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4148e/opx_hw_stretch.xml"/>
@@ -70,6 +72,7 @@ blueprint files.
   <xi:include href="vendor/dellemc/s6000/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s6010/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/z9100/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/z9264f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dell/vm/opx_stretch.xml"/>
 
   <!-- Scripts to run after installation of packages is complete -->

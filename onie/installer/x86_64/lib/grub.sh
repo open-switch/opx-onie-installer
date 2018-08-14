@@ -79,6 +79,13 @@ insmod ext2
 
 EOF
     # Add menu entries for OPX
+
+    BOOTLINE_PLATFORM=""
+    case $OPX_MACHINE in
+    dellemc_z9264f_c3538)
+            BOOTLINE_PLATFORM="iomem=relaxed"
+    esac
+
     cat >> $grub_cfg_file <<EOF
 menuentry 'OPX-A' --class gnu-linux --class gnu --class os {
     set     root=(lvm/$OPX_VOLUME_GROUP-$OPX_SYSROOT1_NAME)
@@ -86,7 +93,7 @@ menuentry 'OPX-A' --class gnu-linux --class gnu --class os {
     linux   /vmlinuz \\
             $GRUB_CMDLINE_LINUX \\
             root=/dev/mapper/$OPX_VOLUME_GROUP-$OPX_SYSROOT1_NAME rw \\
-            quiet net.ifnames=0
+            quiet net.ifnames=0 $BOOTLINE_PLATFORM
     initrd  /initrd.img
 }
 
@@ -96,7 +103,7 @@ menuentry 'OPX-B' --class gnu-linux --class gnu --class os {
     linux   /vmlinuz \\
             $GRUB_CMDLINE_LINUX \\
             root=/dev/mapper/$OPX_VOLUME_GROUP-$OPX_SYSROOT2_NAME rw \\
-            quiet net.ifnames=0
+            quiet net.ifnames=0 $BOOTLINE_PLATFORM
     initrd  /initrd.img
 }
 
