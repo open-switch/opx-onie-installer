@@ -82,8 +82,15 @@ EOF
 
     BOOTLINE_PLATFORM=""
     case $OPX_MACHINE in
+    dellemc_s4112f_c2338)
+        BOOTLINE_PLATFORM="iomem=relaxed"
+        ;;
+    dellemc_s4112t_c2338)
+        BOOTLINE_PLATFORM="iomem=relaxed"
+        ;;
     dellemc_z9264f_c3538)
-            BOOTLINE_PLATFORM="iomem=relaxed"
+        BOOTLINE_PLATFORM="iomem=relaxed"
+        ;;
     esac
 
     cat >> $grub_cfg_file <<EOF
