@@ -80,7 +80,10 @@ blueprint files.
   <inst_hook>97-create-manifest.postinst.sh</inst_hook>
   <inst_hook>98-set-apt-sources.stretch.postinst.sh</inst_hook>
   <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>
+  <inst_hook>100-enable-ztd-mode.postinst.sh</inst_hook>
+  <inst_hook>101-setup-ztd-dhclient.postinst.sh</inst_hook>
 
   <!-- Upgrade hooks -->
   <inst_hook>00-setup-opx-upgrade.pre-upgrade.sh</inst_hook>
+  <inst_hook>03-disable-ztd-file.pre-upgrade.sh</inst_hook>
 </blueprint>
