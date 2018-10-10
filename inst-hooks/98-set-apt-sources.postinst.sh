@@ -23,8 +23,7 @@ deb-src http://security.debian.org/ jessie/updates main contrib non-free
 EOF
 
 # get deb.openswitch.net gpg key
-apt-key adv --keyserver pgp.mit.edu --recv AD5073F1 || \
-  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys AD5073F1
+apt-key adv --fetch-keys http://deb.openswitch.net/opx.asc
 
 apt-get update
 
