@@ -1,5 +1,5 @@
 <rootfs>
-  <tar_name>opx-rootfs_1.1.0-stretch_amd64.tar.gz</tar_name>
+  <tar_name>opx-rootfs_1.2.0-stretch_amd64.tar.gz</tar_name>
   <source>http://archive.openswitch.net/rootfs</source>
   <location>workspace/debian/stretch/x86_64/sysroot</location>
 </rootfs>

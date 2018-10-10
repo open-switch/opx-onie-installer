@@ -1,0 +1,42 @@
+steps:
+  - label: ":debian: Stretch Unstable"
+    branches: "!installer/*"
+    env:
+      DIST: stretch
+      OPX_RELEASE: unstable
+      INSTALLER: "PKGS_OPX-unstable-stretch-installer-x86_64.bin"
+    command: |
+      if [[ -n "$BUILDKITE_TAG" ]]; then
+        OPX_RELEASE="$(echo $BUILDKITE_TAG | tail -c+2)"
+        INSTALLER="PKGS_OPX-${OPX_RELEASE}-installer-x86_64.bin"
+      fi
+      echo "+++ Building installer"
+      cd ..
+      rm -f PKGS_OPX-*
+      dbp -d "$DIST" -r "$OPX_RELEASE" shell \
+        -c "opx_rel_pkgasm.py --dist $OPX_RELEASE -n 0 -b opx-onie-installer/release_bp/OPX_dell_base_${DIST}.xml -v 9 --debug"
+      echo "--- Organizing artifacts"
+      mv "PKGS_OPX-${OPX_RELEASE}-installer-x86_64.bin" "$INSTALLER"
+      sha256sum "$INSTALLER" >"${INSTALLER}.sha256"
+      buildkite-agent artifact upload "${INSTALLER}*"
+  - wait
+  - label: ":s3: publish"
+    branches: "master"
+    agents: {queue: deploy}
+    concurrency: 1
+    concurrency_group: "archive.openswitch.net"
+    env:
+      DIST: stretch
+      OPX_RELEASE: unstable
+      INSTALLER: "PKGS_OPX-unstable-stretch-installer-x86_64.bin"
+    command: |
+      if [[ -n "$BUILDKITE_TAG" ]]; then
+        OPX_RELEASE="$(echo $BUILDKITE_TAG | tail -c+2)"
+        INSTALLER="PKGS_OPX-${OPX_RELEASE}-installer-x86_64.bin"
+      fi
+      echo "--- Uploading $OPX_RELEASE installer"
+      UPLOAD="s3://archive.openswitch.net/installers/$OPX_RELEASE/Dell-EMC"
+      buildkite-agent artifact download "${INSTALLER}*" . && {
+        aws s3 cp "$INSTALLER" "$UPLOAD/$INSTALLER"
+        aws s3 cp "${INSTALLER}.sha256" "$UPLOAD/${INSTALLER}.sha256"
+      }
