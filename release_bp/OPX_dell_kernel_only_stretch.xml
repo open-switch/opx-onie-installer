@@ -25,5 +25,6 @@
   <inst_hook>01-mod-rootdir-permission.preinst.sh</inst_hook>
   <inst_hook>98-set-apt-sources.stretch.postinst.sh</inst_hook>
   <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>
+  <inst_hook>103-create-vmlinuz-symlink.postinst.sh</inst_hook>
 
 </blueprint>

@@ -27,5 +27,6 @@
     <package name="lldpd" />
     <package name="watchdog" />
     <package name="logrotate"/>
+    <package name="initramfs-tools"/>
   </package_list>
 </package_set>
