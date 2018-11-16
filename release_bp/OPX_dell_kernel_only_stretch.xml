@@ -19,7 +19,7 @@
 
   <xi:include href="opx_debian_base_stretch.xml"/>
 
-  <xi:include href="vendor/dell/opx_core.xml"/>
+  <xi:include href="vendor/dell/opx_core_stretch.xml"/>
 
   <!-- Installer hooks -->
   <inst_hook>01-mod-rootdir-permission.preinst.sh</inst_hook>
