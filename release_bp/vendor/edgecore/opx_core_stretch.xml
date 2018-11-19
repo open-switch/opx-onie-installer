@@ -12,6 +12,6 @@
   <xi:include href="../../repo/stretch_updates.xml"/>
 
   <package_list>
-    <package name="linux-image-4.9.110"/>
+    <package name="linux-image-4.9.110-opx"/>
   </package_list>
 </package_set>
