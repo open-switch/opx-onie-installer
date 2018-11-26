@@ -13,7 +13,7 @@ steps:
       echo "+++ Building installer"
       cd ..
       rm -f PKGS_OPX-*
-      dbp -d "$DIST" -r "$OPX_RELEASE" shell \
+      dbp --rm-first -d "$DIST" -r "$OPX_RELEASE" shell \
         -c "opx_rel_pkgasm.py --dist $OPX_RELEASE -n 0 -b opx-onie-installer/release_bp/OPX_dell_base_${DIST}.xml -v 9 --debug"
       echo "--- Organizing artifacts"
       mv "PKGS_OPX-${OPX_RELEASE}-installer-x86_64.bin" "$INSTALLER"
