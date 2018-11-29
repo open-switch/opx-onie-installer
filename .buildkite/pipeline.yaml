@@ -1,22 +1,19 @@
+env:
+  DIST: stretch
+  OPX_RELEASE: unstable
+  CURRENT_VERSION: 3.1.0
+
 steps:
   - label: ":debian: Stretch Unstable"
     branches: "!installer/*"
-    env:
-      DIST: stretch
-      OPX_RELEASE: unstable
-      INSTALLER: "PKGS_OPX-unstable-stretch-installer-x86_64.bin"
     command: |
-      if [[ -n "$BUILDKITE_TAG" ]]; then
-        OPX_RELEASE="$(echo $BUILDKITE_TAG | tail -c+2)"
-        INSTALLER="PKGS_OPX-${OPX_RELEASE}-installer-x86_64.bin"
-      fi
-      echo "+++ Building installer"
+      INSTALLER="PKGS_OPX-${CURRENT_VERSION}-${OPX_RELEASE}-installer-x86_64.bin"
+      echo "+++ Building installer $INSTALLER"
       cd ..
-      rm -f PKGS_OPX-*
+      rm -rf PKGS_OPX-* dists/
       dbp --rm-first -d "$DIST" -r "$OPX_RELEASE" shell \
-        -c "opx_rel_pkgasm.py --dist $OPX_RELEASE -n 0 -b opx-onie-installer/release_bp/OPX_dell_base_${DIST}.xml -v 9 --debug"
+        -c "opx_rel_pkgasm.py --dist $OPX_RELEASE -n 0 -s $OPX_RELEASE -b opx-onie-installer/release_bp/OPX_dell_base_${DIST}.xml -v 9 --debug"
       echo "--- Organizing artifacts"
-      mv "PKGS_OPX-${OPX_RELEASE}-installer-x86_64.bin" "$INSTALLER"
       sha256sum "$INSTALLER" >"${INSTALLER}.sha256"
       buildkite-agent artifact upload "${INSTALLER}*"
   - wait
@@ -25,16 +22,9 @@ steps:
     agents: {queue: deploy}
     concurrency: 1
     concurrency_group: "archive.openswitch.net"
-    env:
-      DIST: stretch
-      OPX_RELEASE: unstable
-      INSTALLER: "PKGS_OPX-unstable-stretch-installer-x86_64.bin"
     command: |
-      if [[ -n "$BUILDKITE_TAG" ]]; then
-        OPX_RELEASE="$(echo $BUILDKITE_TAG | tail -c+2)"
-        INSTALLER="PKGS_OPX-${OPX_RELEASE}-installer-x86_64.bin"
-      fi
-      echo "--- Uploading $OPX_RELEASE installer"
+      INSTALLER="PKGS_OPX-${CURRENT_VERSION}-${OPX_RELEASE}-installer-x86_64.bin"
+      echo "+++ Uploading $OPX_RELEASE installer"
       UPLOAD="s3://archive.openswitch.net/installers/$OPX_RELEASE/Dell-EMC"
       buildkite-agent artifact download "${INSTALLER}*" . && {
         aws s3 cp "$INSTALLER" "$UPLOAD/$INSTALLER"
