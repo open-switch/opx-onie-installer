@@ -69,6 +69,7 @@ blueprint files.
   <xi:include href="vendor/dellemc/s4248fb/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4248fbl/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s5148f/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s5232f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s5248f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s5296f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s6000/opx_hw_stretch.xml"/>

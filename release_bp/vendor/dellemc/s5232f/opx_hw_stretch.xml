@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ASCII'?>
+<package_set xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Packages to be installed on a Dell S5232F-ON target -->
+
+  <name>OpenSwitch DellEMC S5232F-ON Packages</name>
+  <type>distro</type>
+  <platform>dellemc_s5232f_c3538</platform>
+  <default_solver/>
+
+  <xi:include href="../../../repo/local.xml"/>
+  <xi:include href="../../../repo/opx_stretch.xml"/>
+  <xi:include href="../../../repo/stretch.xml"/>
+  <xi:include href="../../../repo/stretch_security.xml"/>
+  <xi:include href="../../../repo/stretch_updates.xml"/>
+
+  <package_list>
+    <package name="opx-dell-s5232f" />
+  </package_list>
+</package_set>
