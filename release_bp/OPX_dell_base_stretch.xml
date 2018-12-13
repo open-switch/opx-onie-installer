@@ -85,7 +85,6 @@ blueprint files.
   <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>
   <inst_hook>100-enable-ztd-mode.postinst.sh</inst_hook>
   <inst_hook>101-setup-ztd-dhclient.postinst.sh</inst_hook>
-  <inst_hook>103-create-vmlinuz-symlink.postinst.sh</inst_hook>
 
   <!-- Upgrade hooks -->
   <inst_hook>00-setup-opx-upgrade.pre-upgrade.sh</inst_hook>
