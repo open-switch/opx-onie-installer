@@ -7,12 +7,12 @@ steps:
   - label: ":debian: Stretch Unstable"
     branches: "!installer/*"
     command: |
-      INSTALLER="PKGS_OPX-${CURRENT_VERSION}-${OPX_RELEASE}-installer-x86_64.bin"
+      INSTALLER="PKGS_OPX-${OPX_RELEASE}-${DIST}-installer-x86_64.bin"
       echo "+++ Building installer $INSTALLER"
       cd ..
       rm -rf PKGS_OPX-* dists/
       dbp --rm-first -d "$DIST" -r "$OPX_RELEASE" shell \
-        -c "opx_rel_pkgasm.py --dist $OPX_RELEASE -n 0 -s $OPX_RELEASE -b opx-onie-installer/release_bp/OPX_dell_base_${DIST}.xml -v 9 --debug"
+        -c "opx_rel_pkgasm.py --dist $OPX_RELEASE -n 0 -s $DIST -b opx-onie-installer/release_bp/OPX_dell_base_${DIST}.xml -v 9 --debug"
       echo "--- Organizing artifacts"
       sha256sum "$INSTALLER" >"${INSTALLER}.sha256"
       buildkite-agent artifact upload "${INSTALLER}*"
@@ -23,7 +23,7 @@ steps:
     concurrency: 1
     concurrency_group: "archive.openswitch.net"
     command: |
-      INSTALLER="PKGS_OPX-${CURRENT_VERSION}-${OPX_RELEASE}-installer-x86_64.bin"
+      INSTALLER="PKGS_OPX-${OPX_RELEASE}-${DIST}-installer-x86_64.bin"
       echo "+++ Uploading $OPX_RELEASE installer"
       UPLOAD="s3://archive.openswitch.net/installers/$OPX_RELEASE/Dell-EMC"
       buildkite-agent artifact download "${INSTALLER}*" . && {
