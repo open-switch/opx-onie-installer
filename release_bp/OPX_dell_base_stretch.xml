@@ -68,7 +68,8 @@ blueprint files.
   <xi:include href="vendor/dellemc/s4148t/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4248fb/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s4248fbl/opx_hw_stretch.xml"/>
-  <xi:include href="vendor/dellemc/s5148f/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s5212f/opx_hw_stretch.xml"/>
+  <xi:include href="vendor/dellemc/s5224f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s5232f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s5248f/opx_hw_stretch.xml"/>
   <xi:include href="vendor/dellemc/s5296f/opx_hw_stretch.xml"/>
@@ -85,6 +86,7 @@ blueprint files.
   <inst_hook>99-set-corefile-setting.postinst.sh</inst_hook>
   <inst_hook>100-enable-ztd-mode.postinst.sh</inst_hook>
   <inst_hook>101-setup-ztd-dhclient.postinst.sh</inst_hook>
+  <inst_hook>01-handle-kernel-symlinks.postinst.sh</inst_hook>
 
   <!-- Upgrade hooks -->
   <inst_hook>00-setup-opx-upgrade.pre-upgrade.sh</inst_hook>
