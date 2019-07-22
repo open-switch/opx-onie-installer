@@ -1,7 +1,7 @@
 env:
   DIST: stretch
   OPX_RELEASE: unstable
-  CURRENT_VERSION: 3.1.0
+  CURRENT_VERSION: 3.2.0
 
 steps:
   - label: ":debian: Stretch Unstable"
@@ -25,7 +25,7 @@ steps:
     command: |
       INSTALLER="PKGS_OPX-${OPX_RELEASE}-${DIST}-installer-x86_64.bin"
       echo "+++ Uploading $OPX_RELEASE installer"
-      UPLOAD="s3://archive.openswitch.net/installers/$OPX_RELEASE/Dell-EMC"
+      UPLOAD="s3://archive-openswitch-net/installers/$OPX_RELEASE/Dell-EMC"
       buildkite-agent artifact download "${INSTALLER}*" . && {
         aws s3 cp "$INSTALLER" "$UPLOAD/$INSTALLER"
         aws s3 cp "${INSTALLER}.sha256" "$UPLOAD/${INSTALLER}.sha256"
